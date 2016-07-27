@@ -33,7 +33,8 @@ lists2df <- function(df_in, list_ind, id_ind){
   df_out <- data.frame(x=numeric(), y=numeric(), objectid=integer())
   for (i in 1:nrow(df_in)){
     df1 <- data.frame(matrix(df_in[, list_ind][[i]], ncol=2))
-    df1$objectid <- rep(df_in[i, id_ind], nrow(df1))
+    df1$objectid2 <- rep(df_in[i, id_ind], nrow(df1))
+    df1$objectid <- rep(i, nrow(df1))
     colnames(df1)[1:2] <- c("x", "y")
     df_out <- rbind(df_out, df1)
   }
